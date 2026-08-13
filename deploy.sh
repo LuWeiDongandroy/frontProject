@@ -10,5 +10,6 @@ git status
 git commit -m "$MSG" || echo "没有新提交，继续部署"
 git push origin main
 
-ssh "$SERVER" "cd $REMOTE_DIR && git pull && docker compose up -d --build"
-echo "部署完成 → http://114.215.190.68:8000"
+# 服务器拉代码并重新构建前端
+ssh "$SERVER" "cd $REMOTE_DIR && git pull && npm install && npm run build"
+echo "部署完成 → http://114.215.190.68:你的前端端口"
