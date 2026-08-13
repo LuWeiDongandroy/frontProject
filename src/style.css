@@ -586,6 +586,30 @@ body {
   font-size: 1.02rem;
 }
 
+/* Agent showcase */
+.agents-placeholder {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 8px;
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 35%;
+}
+
+.agents-status {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.agents-hint {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -600,7 +624,8 @@ body {
 @supports not (animation-timeline: view()) {
   .traits li,
   .focus-line,
-  .motto-stage {
+  .motto-stage,
+  .agents-placeholder {
     opacity: 1;
     transform: none;
     animation: none;
@@ -667,7 +692,9 @@ body {
   }
 
   .top nav {
-    gap: 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .motto-stage {
